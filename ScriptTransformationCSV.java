@@ -15,7 +15,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-public class ConversionCSV implements Runnable {
+public class ScriptTransformationCSV implements Runnable {
 
 	private String outputPath;
 	private String inputPath;
@@ -24,7 +24,7 @@ public class ConversionCSV implements Runnable {
 	String result;
 
 
-	public ConversionCSV (String inputPath, String outputPath) {
+	public ScriptTransformationCSV (String inputPath, String outputPath) {
 		this.outputPath = outputPath;
 		this.inputPath = inputPath;
 	}
