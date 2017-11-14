@@ -3,7 +3,7 @@
 SELECT D.mois, E.sexe, COUNT(E.sexe)
 	FROM TableFaitsNaissance N, TableEnfant E, TableDate D,
 		WHERE (E.idEnfant = N.idEnfant) 
-			GROUP BY ROLLUP(D.mois, E.sexe);
+			GROUP BY (D.mois, E.sexe) WITH ROLLUP;
 			
 -- Requête 2 : Rang des départements en fonction du nombre d'enfants par sexe 
 			
@@ -19,14 +19,15 @@ SELECT *,
 FROM   TableFaitsNaissance 
 ORDER  condition
 			
+				
 			
--- Requête 4 : L’influence de la situation professionnelle sur les conditions d’accouchement
+-- Requête 4 : Comparer les âges des deux parents
 
 
--- Requête 5 : 
+-- Requête 5 : Situation professionnelle -> condition, reconnaissance enfants 
 
 
--- Requête 6 : 
+-- Requête 6 : Comparaison des reconnaissances de l'enfant
 
 
 -- Requête 7 : 
@@ -38,7 +39,7 @@ ORDER  condition
 -- Requête 9 :
 
 
--- Requête 10 :
+-- Requête 10 :Comparaison âge/jumeaux 
 
 
 -- Requête 11 :
