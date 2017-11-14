@@ -1,0 +1,78 @@
+<Schema name="New Schema1">
+  <Cube name="Cube_Naissance" visible="true" cache="true" enabled="true">
+    <Table name="faitNaissanceTest">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="idEnfant" name="dimEnfant">
+      <Hierarchy name="Enfant" visible="true" hasAll="true" primaryKey="idEnfant">
+        <Table name="dimEnfant" alias="">
+        </Table>
+        <Level name="Sexe_de_l_enfant" visible="true" table="dimEnfant" column="Sexe_de_l_enfant" nameColumn="Sexe_de_l_enfant" type="String" uniqueMembers="false">
+        </Level>
+        <Level name="Origine_nom" visible="true" table="dimEnfant" column="Origine_nom" nameColumn="Origine_nom" type="String" uniqueMembers="false">
+        </Level>
+        <Level name="Departement_de_naissance_de_l_enfant" visible="true" table="dimEnfant" column="Departement_de_naissance_de_l_enfant" nameColumn="Departement_de_naissance_de_l_enfant" type="String" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="idPere" name="dimPere">
+      <Hierarchy name="Pere" visible="true" hasAll="true" primaryKey="idPere">
+        <Table name="dimPere" alias="">
+        </Table>
+        <Level name="Age_pere_annee_naissance" visible="true" table="dimPere" column="Age_du_pere_dans_l_annee_de_naissance_de_l_enfant" nameColumn="Age_du_pere_dans_l_annee_de_naissance_de_l_enfant" type="Integer" uniqueMembers="false">
+        </Level>
+        <Level name="Age_pere_exact_naissance" visible="true" table="dimPere" column="Age_exact_du_pere_a_la_naissance_de_l_enfant" nameColumn="Age_exact_du_pere_a_la_naissance_de_l_enfant" type="Integer" uniqueMembers="false">
+        </Level>
+        <Level name="Indicateur_nationalite_pere" visible="true" table="dimPere" column="Indicateur_de_nationalite_du_pere" nameColumn="Indicateur_de_nationalite_du_pere" type="Integer" uniqueMembers="false">
+        </Level>
+        <Level name="Indicateur_lieu_naissance_pere" visible="true" table="dimPere" column="Indicateur_du_lieu_de_naissance_du_pere" nameColumn="Indicateur_du_lieu_de_naissance_du_pere" type="Numeric" uniqueMembers="false">
+        </Level>
+        <Level name="Situation_pro_pere" visible="true" table="dimPere" column="Situation_professionnelle_du_pere" nameColumn="Situation_professionnelle_du_pere" type="String" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="idMere" name="dimMere">
+      <Hierarchy name="Mere" visible="true" hasAll="true" primaryKey="idMere">
+        <Table name="dimMere" alias="">
+        </Table>
+        <Level name="Age_mere_naissance" visible="true" table="dimMere" column="Age_de_la_mere_dans_l_annee_de_naissance_de_l_enfant" nameColumn="Age_de_la_mere_dans_l_annee_de_naissance_de_l_enfant" type="Numeric" uniqueMembers="false">
+        </Level>
+        <Level name="Age_mere_exact_naissance" visible="true" table="dimMere" column="Age_exact_de_la_mere_a_la_naissance_de_l_enfant" nameColumn="Age_exact_de_la_mere_a_la_naissance_de_l_enfant" type="Numeric" uniqueMembers="false">
+        </Level>
+        <Level name="Departement_domicile_mere" visible="true" table="dimMere" column="Departement_de_domicile_de_la_mere" nameColumn="Departement_de_domicile_de_la_mere" type="String" uniqueMembers="false">
+        </Level>
+        <Level name="Indicateur_nationalite_mere" visible="true" table="dimMere" column="Indicateur_de_nationalite_de_la_mere" nameColumn="Indicateur_de_nationalite_de_la_mere" type="Numeric" uniqueMembers="false">
+        </Level>
+        <Level name="Indicateur_lieu_naissance_mere" visible="true" table="dimMere" column="Indicateur_du_lieu_de_naissance_de_la_mere" nameColumn="Indicateur_du_lieu_de_naissance_de_la_mere" type="Numeric" uniqueMembers="false">
+        </Level>
+        <Level name="Situation_pro_mere" visible="true" table="dimMere" column="Situation_professionnelle_de_la_mere" nameColumn="Situation_professionnelle_de_la_mere" type="String" uniqueMembers="false">
+        </Level>
+        <Level name="Tranche_commune_domicile_mere" visible="true" table="dimMere" column="Tranche_de_commune_du_lieu_de_domicile_de_la_mere" nameColumn="Tranche_de_commune_du_lieu_de_domicile_de_la_mere" type="String" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="idDate" name="dimDate">
+      <Hierarchy name="Date" visible="true" hasAll="true" primaryKey="idDate">
+        <Table name="dimDate" alias="">
+        </Table>
+        <Level name="Annee" visible="true" table="dimDate" column="Annee" nameColumn="Annee" type="String" uniqueMembers="false">
+        </Level>
+        <Level name="Jour" visible="true" table="dimDate" column="Jour" nameColumn="Jour" type="String" uniqueMembers="false">
+        </Level>
+        <Level name="New Level 2" visible="true" table="dimDate" column="Mois" nameColumn="Mois" type="String" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Condition_accouchement" column="conditionAccouchement" datatype="String" aggregator="distinct-count" visible="true">
+    </Measure>
+    <Measure name="Date_reconnaissance_conjointe" column="dateReconnaissanceConjointe" datatype="String" aggregator="distinct-count" visible="true">
+    </Measure>
+    <Measure name="Date_reconnaissance_mere" column="dateReconnaissanceMere" datatype="String" aggregator="distinct-count" visible="true">
+    </Measure>
+    <Measure name="Date_reconnaissance_pere" column="dateReconnaissancePere" datatype="String" aggregator="distinct-count" visible="true">
+    </Measure>
+    <Measure name="Duree_dernier_evenement" column="dureeDernierEvenement" datatype="String" aggregator="distinct-count" visible="true">
+    </Measure>
+    <Measure name="Nb_enfants" column="nbEnfant" datatype="Numeric" aggregator="distinct-count" visible="true">
+    </Measure>
+  </Cube>
+</Schema>
